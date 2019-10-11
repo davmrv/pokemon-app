@@ -10,10 +10,11 @@ class PokemonAbility extends React.Component {
     data: null,
   };
 
-  componentDidMount() {
-    fetch(this.props.ability.url)
-      .then(async response => await response.json())
-      .then(data => this.setState({ data }));
+  async componentDidMount() {
+    const data = await fetch(this.props.ability.url)
+      .then(async response => await response.json());
+
+    this.setState({ data });
   }
 
   render() {
