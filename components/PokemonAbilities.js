@@ -3,6 +3,7 @@ import {
   View,
   ScrollView,
   Text,
+  StyleSheet,
 } from 'react-native';
 
 
@@ -18,10 +19,7 @@ class PokemonAbilities extends React.Component {
 
     return (
       <View style={{ paddingVertical: 10 }}>
-        <Text style={{
-          fontWeight: 'bold',
-          fontSize: 20,
-        }}>
+        <Text style={styles.title}>
           Abilities
         </Text>
         <ScrollView
@@ -47,6 +45,13 @@ class PokemonAbilities extends React.Component {
     );
   }
 }
+
+const styles = StyleSheet.create({
+  title: {
+    fontWeight: 'bold',
+    fontSize: 20,
+  },
+});
 
 export default PokemonAbilities;
 

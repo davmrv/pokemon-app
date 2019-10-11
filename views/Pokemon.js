@@ -13,6 +13,7 @@ import PokemonSprites from '../components/PokemonSprites';
 import PokemonTypes from '../components/PokemonTypes';
 import PokemonAbilities from '../components/PokemonAbilities';
 import PokemonStats from '../components/PokemonStats';
+import PokemonMoves from '../components/PokemonMoves';
 
 class Pokemon extends React.Component {
   state = {
@@ -42,18 +43,18 @@ class Pokemon extends React.Component {
           <Text style={styles.title}>
             {this.state.pokemon.name}
           </Text>
+          <View style={{ paddingVertical: 10 }}>
+            <Text>
+              { this.state.pokemon.height } kg - { this.state.pokemon.weight } cm
+            </Text>
+          </View>
           <PokemonTypes types={this.state.pokemon.types} />
           <PokemonAbilities abilities={this.state.pokemon.abilities} />
           <PokemonStats stats={this.state.pokemon.stats} />
+          <PokemonMoves moves={this.state.pokemon.moves} />
         </ScrollView>
         <View
-          style={{
-            postion: 'fixed',
-            bottom: 0,
-            padding: 20,
-            backgroundColor: '#f1f1f1',
-            elevation: 1,
-          }}
+          style={styles.footer}
         >
           <Button
             style={{ fontWeight: 'bold' }}
@@ -77,7 +78,11 @@ const styles = StyleSheet.create({
   },
   content: {
     flex: 1,
+    paddingHorizontal: 20,
+  },
+  footer: {
     padding: 20,
+    backgroundColor: '#f1f1f1',
   },
 });
 

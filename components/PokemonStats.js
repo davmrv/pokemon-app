@@ -14,7 +14,7 @@ class PokemonStats extends React.Component {
     const { stats } = this.props;
 
     return (
-      <View style={{ flexDirection: 'row', width: '100%', flexWrap: 'wrap' }}>
+      <View style={styles.container}>
       {
         stats
           .map(({ stat, base_stat, effort }, index) => (
@@ -30,6 +30,11 @@ class PokemonStats extends React.Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flexDirection: 'row',
+    width: '100%',
+    flexWrap: 'wrap',
+  },
   statTitle: {
     fontWeight: 'bold',
     textTransform: 'capitalize',
