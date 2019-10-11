@@ -33,14 +33,20 @@ class Home extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <StatusBar backgroundColor="red" barStyle="light-content" />
+        <StatusBar
+          backgroundColor="#DB3D3D"
+          barStyle="light-content"
+        />
         <View style={styles.searchBar}>
           <Text style={styles.title}>
-            Pokemon List
+            Pokemons
           </Text>
         </View>
         <View style={styles.content}>
-          <Pokemons navigation={this.props.navigation} pokemons={this.state.pokemons.results} />
+          <Pokemons
+            navigation={this.props.navigation}
+            pokemons={this.state.pokemons.results}
+          />
         </View>
       </View>
     );
