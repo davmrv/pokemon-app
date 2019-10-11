@@ -12,6 +12,7 @@ import {
 import PokemonSprites from '../components/PokemonSprites';
 import PokemonTypes from '../components/PokemonTypes';
 import PokemonAbilities from '../components/PokemonAbilities';
+import PokemonStats from '../components/PokemonStats';
 
 class Pokemon extends React.Component {
   state = {
@@ -43,6 +44,7 @@ class Pokemon extends React.Component {
           </Text>
           <PokemonTypes types={this.state.pokemon.types} />
           <PokemonAbilities abilities={this.state.pokemon.abilities} />
+          <PokemonStats stats={this.state.pokemon.stats} />
         </ScrollView>
         <View
           style={{
