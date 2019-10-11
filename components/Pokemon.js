@@ -19,12 +19,13 @@ class Pokemon extends React.Component {
     },
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     const { pokemon } = this.props;
 
-    fetch(pokemon.url)
-      .then(async response => await response.json())
-      .then(data => this.setState({ data }));
+    const data = await fetch(pokemon.url)
+      .then(async response => await response.json());
+    
+    this.setState({ data });
   }
 
   handlePress(pokemon) {

@@ -44,9 +44,17 @@ class Pokemon extends React.Component {
           <PokemonTypes types={this.state.pokemon.types} />
           <PokemonAbilities abilities={this.state.pokemon.abilities} />
         </ScrollView>
-        <View style={{ postion: 'fixed', bottom: 0 }}>
+        <View
+          style={{
+            postion: 'fixed',
+            bottom: 0,
+            padding: 20,
+            backgroundColor: '#f1f1f1',
+            elevation: 1,
+          }}
+        >
           <Button
-            style={{ fontWeight: 'bold', marginBottom: 20 }}
+            style={{ fontWeight: 'bold' }}
             onPress={() => this.props.navigation.goBack()}
             title='Back'
           />

@@ -30,8 +30,8 @@ class PokemonAbility extends React.Component {
           <Text style={styles.title}>
             { data.name }
           </Text>
-          <View style={{ backgroundColor: 'beige' }}>
-            <Text style={styles.content}>
+          <View style={ styles.content }>
+            <Text>
               { data.effect_entries[0].effect }
             </Text>
           </View>
@@ -43,12 +43,13 @@ class PokemonAbility extends React.Component {
 
 const styles = StyleSheet.create({
   title: {
-    backgroundColor: '#FED0BB',
+    backgroundColor: '#f1f1f1',
     fontWeight: 'bold',
     padding: 10,
   },
   content: {
     padding: 10,
+    backgroundColor: '#fafafa',
   },
 });
 
