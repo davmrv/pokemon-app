@@ -5,7 +5,13 @@ import {
   View,
   StyleSheet,
   Image,
+  ScrollView,
 } from 'react-native';
+
+
+import PokemonSprites from '../components/PokemonSprites';
+import PokemonTypes from '../components/PokemonTypes';
+import PokemonAbilities from '../components/PokemonAbilities';
 
 class Pokemon extends React.Component {
   state = {
@@ -16,37 +22,29 @@ class Pokemon extends React.Component {
   };
 
   componentDidMount() {
+    const pokemon = this.props.navigation.getParam('pokemon');
+
     this.setState({
-      pokemon: this.props.navigation.getParam('pokemon')
+      pokemon,
     });
   }
 
   render() {
-    const images = Object
-      .keys(this.state.pokemon.sprites)
-      .map((key, index) => (
-        <Image
-          key={index}
-          source={{
-            uri: this.state.pokemon.sprites[key],
-          }}
-          styles={styles.image}
-        />
-      ));
-    
     return (
       <View style={styles.container}>
         <View>
-          <Text
-            style={styles.title}
-          >
+          <PokemonSprites sprites={this.state.pokemon.sprites} />
+        </View>
+        <ScrollView
+          style={styles.content}
+        >
+          <Text style={styles.title}>
             {this.state.pokemon.name}
           </Text>
-          <View>
-            {images[0]}
-          </View>
-        </View>
-        <View>
+          <PokemonTypes types={this.state.pokemon.types} />
+          <PokemonAbilities abilities={this.state.pokemon.abilities} />
+        </ScrollView>
+        <View style={{ postion: 'fixed', bottom: 0 }}>
           <Button
             style={{ fontWeight: 'bold', marginBottom: 20 }}
             onPress={() => this.props.navigation.goBack()}
@@ -60,17 +58,16 @@ class Pokemon extends React.Component {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 20,
+    height: '100%',
   },
   title: {
     fontSize: 50,
     fontWeight: '100',
+    textTransform: 'capitalize',
   },
-  image: {
-    height: 300,
-    width: 100,
-    margin: 10,
-    resizeMode: 'contain',
+  content: {
+    flex: 1,
+    padding: 20,
   },
 });
 
